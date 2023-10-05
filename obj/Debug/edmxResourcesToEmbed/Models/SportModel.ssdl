@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sportBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Accesorios">
+    <Key>
+      <PropertyRef Name="id_Accesorios" />
+    </Key>
+    <Property Name="id_Accesorios" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="precio" Type="float" Nullable="false" />
+    <Property Name="url_foto" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Categoria_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Almacen">
+    <Key>
+      <PropertyRef Name="id_Almacen" />
+    </Key>
+    <Property Name="id_Almacen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cp" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="estado" Type="varchar" MaxLength="20" />
+    <Property Name="ciudad" Type="varchar" MaxLength="20" />
+    <Property Name="colonia" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="calle" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="num_Ext" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="dimensiones" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="espacio_usado" Type="float" />
+  </EntityType>
+  <EntityType Name="Categorias">
+    <Key>
+      <PropertyRef Name="id_Categoria" />
+    </Key>
+    <Property Name="id_Categoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_Categoria" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="subcategoria" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Maquinas">
+    <Key>
+      <PropertyRef Name="id_Maquina" />
+    </Key>
+    <Property Name="id_Maquina" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="modelo" Type="varchar" MaxLength="25" />
+    <Property Name="marca" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="precio" Type="float" Nullable="false" />
+    <Property Name="url_foto" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Categoria_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Producto_Venta">
+    <Key>
+      <PropertyRef Name="id_PV" />
+    </Key>
+    <Property Name="id_PV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="monto" Type="float" />
+    <Property Name="Producto_Id" Type="int" Nullable="false" />
+    <Property Name="Venta_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Productos">
+    <Key>
+      <PropertyRef Name="id_Producto" />
+    </Key>
+    <Property Name="id_Producto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="producto" Type="int" Nullable="false" />
+    <Property Name="tabla" Type="varchar" MaxLength="11" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ropa">
+    <Key>
+      <PropertyRef Name="id_Ropa" />
+    </Key>
+    <Property Name="id_Ropa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="marca" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="talla" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="precio" Type="float" Nullable="false" />
+    <Property Name="url_Foto" Type="varchar" MaxLength="250" />
+    <Property Name="Categoria_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stock">
+    <Key>
+      <PropertyRef Name="id_stock" />
+    </Key>
+    <Property Name="id_stock" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="Producto_Id" Type="int" Nullable="false" />
+    <Property Name="Almacen_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Trabajadores">
+    <Key>
+      <PropertyRef Name="id_Trabajador" />
+    </Key>
+    <Property Name="id_Trabajador" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="apellido_P" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="apellido_M" Type="varchar" MaxLength="25" />
+    <Property Name="puesto" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ventas">
+    <Key>
+      <PropertyRef Name="id_Venta" />
+    </Key>
+    <Property Name="id_Venta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="hora" Type="time" Precision="7" Nullable="false" />
+    <Property Name="Trabajador_Id" Type="int" />
+  </EntityType>
+  <Association Name="FK__Accesorio__Categ__3C69FB99">
+    <End Role="Categorias" Type="Self.Categorias" Multiplicity="1" />
+    <End Role="Accesorios" Type="Self.Accesorios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorias">
+        <PropertyRef Name="id_Categoria" />
+      </Principal>
+      <Dependent Role="Accesorios">
+        <PropertyRef Name="Categoria_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Maquinas__Catego__36B12243">
+    <End Role="Categorias" Type="Self.Categorias" Multiplicity="1" />
+    <End Role="Maquinas" Type="Self.Maquinas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorias">
+        <PropertyRef Name="id_Categoria" />
+      </Principal>
+      <Dependent Role="Maquinas">
+        <PropertyRef Name="Categoria_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Producto___Produ__2F10007B">
+    <End Role="Productos" Type="Self.Productos" Multiplicity="1" />
+    <End Role="Producto_Venta" Type="Self.Producto_Venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Productos">
+        <PropertyRef Name="id_Producto" />
+      </Principal>
+      <Dependent Role="Producto_Venta">
+        <PropertyRef Name="Producto_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Producto___Venta__300424B4">
+    <End Role="Ventas" Type="Self.Ventas" Multiplicity="1" />
+    <End Role="Producto_Venta" Type="Self.Producto_Venta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ventas">
+        <PropertyRef Name="id_Venta" />
+      </Principal>
+      <Dependent Role="Producto_Venta">
+        <PropertyRef Name="Venta_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ropa__Categoria___398D8EEE">
+    <End Role="Categorias" Type="Self.Categorias" Multiplicity="1" />
+    <End Role="Ropa" Type="Self.Ropa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorias">
+        <PropertyRef Name="id_Categoria" />
+      </Principal>
+      <Dependent Role="Ropa">
+        <PropertyRef Name="Categoria_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Stock__Almacen_I__33D4B598">
+    <End Role="Almacen" Type="Self.Almacen" Multiplicity="1" />
+    <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Almacen">
+        <PropertyRef Name="id_Almacen" />
+      </Principal>
+      <Dependent Role="Stock">
+        <PropertyRef Name="Almacen_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Stock__Producto___32E0915F">
+    <End Role="Productos" Type="Self.Productos" Multiplicity="1" />
+    <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Productos">
+        <PropertyRef Name="id_Producto" />
+      </Principal>
+      <Dependent Role="Stock">
+        <PropertyRef Name="Producto_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Ventas__Trabajad__2A4B4B5E">
+    <End Role="Trabajadores" Type="Self.Trabajadores" Multiplicity="0..1" />
+    <End Role="Ventas" Type="Self.Ventas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trabajadores">
+        <PropertyRef Name="id_Trabajador" />
+      </Principal>
+      <Dependent Role="Ventas">
+        <PropertyRef Name="Trabajador_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="sportBDModelStoreContainer">
+    <EntitySet Name="Accesorios" EntityType="Self.Accesorios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Almacen" EntityType="Self.Almacen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Categorias" EntityType="Self.Categorias" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Maquinas" EntityType="Self.Maquinas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Producto_Venta" EntityType="Self.Producto_Venta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Productos" EntityType="Self.Productos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ropa" EntityType="Self.Ropa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Stock" EntityType="Self.Stock" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Trabajadores" EntityType="Self.Trabajadores" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ventas" EntityType="Self.Ventas" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Accesorio__Categ__3C69FB99" Association="Self.FK__Accesorio__Categ__3C69FB99">
+      <End Role="Categorias" EntitySet="Categorias" />
+      <End Role="Accesorios" EntitySet="Accesorios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Maquinas__Catego__36B12243" Association="Self.FK__Maquinas__Catego__36B12243">
+      <End Role="Categorias" EntitySet="Categorias" />
+      <End Role="Maquinas" EntitySet="Maquinas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Producto___Produ__2F10007B" Association="Self.FK__Producto___Produ__2F10007B">
+      <End Role="Productos" EntitySet="Productos" />
+      <End Role="Producto_Venta" EntitySet="Producto_Venta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Producto___Venta__300424B4" Association="Self.FK__Producto___Venta__300424B4">
+      <End Role="Ventas" EntitySet="Ventas" />
+      <End Role="Producto_Venta" EntitySet="Producto_Venta" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ropa__Categoria___398D8EEE" Association="Self.FK__Ropa__Categoria___398D8EEE">
+      <End Role="Categorias" EntitySet="Categorias" />
+      <End Role="Ropa" EntitySet="Ropa" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Stock__Almacen_I__33D4B598" Association="Self.FK__Stock__Almacen_I__33D4B598">
+      <End Role="Almacen" EntitySet="Almacen" />
+      <End Role="Stock" EntitySet="Stock" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Stock__Producto___32E0915F" Association="Self.FK__Stock__Producto___32E0915F">
+      <End Role="Productos" EntitySet="Productos" />
+      <End Role="Stock" EntitySet="Stock" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Ventas__Trabajad__2A4B4B5E" Association="Self.FK__Ventas__Trabajad__2A4B4B5E">
+      <End Role="Trabajadores" EntitySet="Trabajadores" />
+      <End Role="Ventas" EntitySet="Ventas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

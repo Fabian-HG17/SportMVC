@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="sportBDModelStoreContainer" CdmEntityContainer="sportBDEntities">
+    <EntitySetMapping Name="Accesorios">
+      <EntityTypeMapping TypeName="sportBDModel.Accesorios">
+        <MappingFragment StoreEntitySet="Accesorios">
+          <ScalarProperty Name="id_Accesorios" ColumnName="id_Accesorios" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="url_foto" ColumnName="url_foto" />
+          <ScalarProperty Name="Categoria_Id" ColumnName="Categoria_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Almacen">
+      <EntityTypeMapping TypeName="sportBDModel.Almacen">
+        <MappingFragment StoreEntitySet="Almacen">
+          <ScalarProperty Name="id_Almacen" ColumnName="id_Almacen" />
+          <ScalarProperty Name="cp" ColumnName="cp" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+          <ScalarProperty Name="colonia" ColumnName="colonia" />
+          <ScalarProperty Name="calle" ColumnName="calle" />
+          <ScalarProperty Name="num_Ext" ColumnName="num_Ext" />
+          <ScalarProperty Name="dimensiones" ColumnName="dimensiones" />
+          <ScalarProperty Name="espacio_usado" ColumnName="espacio_usado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categorias">
+      <EntityTypeMapping TypeName="sportBDModel.Categorias">
+        <MappingFragment StoreEntitySet="Categorias">
+          <ScalarProperty Name="id_Categoria" ColumnName="id_Categoria" />
+          <ScalarProperty Name="nombre_Categoria" ColumnName="nombre_Categoria" />
+          <ScalarProperty Name="subcategoria" ColumnName="subcategoria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Maquinas">
+      <EntityTypeMapping TypeName="sportBDModel.Maquinas">
+        <MappingFragment StoreEntitySet="Maquinas">
+          <ScalarProperty Name="id_Maquina" ColumnName="id_Maquina" />
+          <ScalarProperty Name="modelo" ColumnName="modelo" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="url_foto" ColumnName="url_foto" />
+          <ScalarProperty Name="Categoria_Id" ColumnName="Categoria_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Producto_Venta">
+      <EntityTypeMapping TypeName="sportBDModel.Producto_Venta">
+        <MappingFragment StoreEntitySet="Producto_Venta">
+          <ScalarProperty Name="id_PV" ColumnName="id_PV" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="Producto_Id" ColumnName="Producto_Id" />
+          <ScalarProperty Name="Venta_Id" ColumnName="Venta_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Productos">
+      <EntityTypeMapping TypeName="sportBDModel.Productos">
+        <MappingFragment StoreEntitySet="Productos">
+          <ScalarProperty Name="id_Producto" ColumnName="id_Producto" />
+          <ScalarProperty Name="producto" ColumnName="producto" />
+          <ScalarProperty Name="tabla" ColumnName="tabla" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ropa">
+      <EntityTypeMapping TypeName="sportBDModel.Ropa">
+        <MappingFragment StoreEntitySet="Ropa">
+          <ScalarProperty Name="id_Ropa" ColumnName="id_Ropa" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="talla" ColumnName="talla" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="url_Foto" ColumnName="url_Foto" />
+          <ScalarProperty Name="Categoria_Id" ColumnName="Categoria_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stock">
+      <EntityTypeMapping TypeName="sportBDModel.Stock">
+        <MappingFragment StoreEntitySet="Stock">
+          <ScalarProperty Name="id_stock" ColumnName="id_stock" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="Producto_Id" ColumnName="Producto_Id" />
+          <ScalarProperty Name="Almacen_Id" ColumnName="Almacen_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trabajadores">
+      <EntityTypeMapping TypeName="sportBDModel.Trabajadores">
+        <MappingFragment StoreEntitySet="Trabajadores">
+          <ScalarProperty Name="id_Trabajador" ColumnName="id_Trabajador" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido_P" ColumnName="apellido_P" />
+          <ScalarProperty Name="apellido_M" ColumnName="apellido_M" />
+          <ScalarProperty Name="puesto" ColumnName="puesto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ventas">
+      <EntityTypeMapping TypeName="sportBDModel.Ventas">
+        <MappingFragment StoreEntitySet="Ventas">
+          <ScalarProperty Name="id_Venta" ColumnName="id_Venta" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+          <ScalarProperty Name="Trabajador_Id" ColumnName="Trabajador_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

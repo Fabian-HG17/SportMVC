@@ -1,0 +1,33 @@
+﻿
+@model SportMVC.Models.ViewModels.CategoriasDTO
+<!-- Masthead-->
+<div class="categorias portada">
+    <h2 class="card-title">@ViewData["Title"]</h2>
+</div>
+<div class="container espacio">
+
+@using (Html.BeginForm("AgregarCategoria", "Categorias", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="input-group mb-3">
+                @Html.LabelFor(c => c.nombre_Categoria, new {@class= "input-group-text"})
+                @Html.TextBoxFor(c => c.nombre_Categoria, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(c => c.nombre_Categoria, null, new { @class = "red" })
+            </div>
+            <div class="input-group mb-3">
+                @Html.Label("Subcategoría",new { @class = "input-group-text" })
+                @Html.DropDownListFor(c => c.subcategoria, new SelectList(ViewBag.lisCategoria,
+               "subcategoria", "subcategoria"), new { @class = "form-control" })
+            </div>
+           
+            <div style="text-align:right;">
+                <input value="Guardar" class="btn btn-success" type="submit" />
+            </div>
+        </div>
+    </div>
+
+}
+
+</div>
+

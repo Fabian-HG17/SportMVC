@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="28bef979ac9a48c4bf0dbd512510a96d" Name="Diagram1">
+        <EntityTypeShape EntityType="sportBDModel.Accesorios" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="sportBDModel.Almacen" Width="1.5" PointX="8" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="sportBDModel.Categorias" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="sportBDModel.Maquinas" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="sportBDModel.Producto_Venta" Width="1.5" PointX="10.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="sportBDModel.Productos" Width="1.5" PointX="8" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="sportBDModel.Ropa" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="sportBDModel.Stock" Width="1.5" PointX="10.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="sportBDModel.Trabajadores" Width="1.5" PointX="5.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="sportBDModel.Ventas" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="sportBDModel.FK__Accesorio__Categ__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="sportBDModel.FK__Stock__Almacen_I__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="sportBDModel.FK__Maquinas__Catego__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="sportBDModel.FK__Ropa__Categoria___398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="sportBDModel.FK__Producto___Produ__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="sportBDModel.FK__Producto___Venta__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="sportBDModel.FK__Stock__Producto___32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="sportBDModel.FK__Ventas__Trabajad__2A4B4B5E" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

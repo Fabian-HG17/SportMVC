@@ -1,0 +1,38 @@
+﻿@model List<SportMVC.Models.ViewModels.Ropa.RopaLista>
+
+<!-- Masthead-->
+<div class="ropa portada">
+    <h2 class="card-title">@ViewData["Title"]</h2>
+</div>
+
+<div class="container espacio">
+
+
+    <div class="row">
+        <div class="col-md-12 mb-3" style="text-align:right;">
+            <a href="~/Ropa/AgregarRopa" class="btn btn-primary">
+                Agregar
+            </a>
+        </div>
+    </div>
+    <div class="row col-md-12">
+
+        @foreach (var Elemento in Model)
+        {
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="@Elemento.url_Foto" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@Elemento.nombre</h5>
+                        <p class="card-text"><i class="fa-solid fa-dollar-sign" style="color: #b3bac6;"></i>@Elemento.precio</p>
+                        <p class="card-text">Marca: @Elemento.marca</p>
+                        <p class="card-text">Talla: @Elemento.talla</p>
+                        <a href="~/Ropa/EditarRopa/@Elemento.id_Ropa" class="btn btn-primary">Editar</a>
+                        <a href="~/Ropa/EliminarRopa/@Elemento.id_Ropa" class="btn btn-danger">Eliminar</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
